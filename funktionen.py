@@ -1,4 +1,4 @@
-import os, xlrd
+import os, xlrd, sys
 from random import randrange
 ################################ header ###################################
 def header():
@@ -75,13 +75,27 @@ def auswahlInt(text, text2, todo):
 		print(text2)
 		print("")
 		auswahl = input(todo)
-		if auswahl.isalpha() == True:
-			print("Ist String: "+auswahl)
-			auswahl = str(auswahl)
-		else:
+		if auswahl.isdigit() == True:
 			print("Ist Int: "+auswahl)
 			auswahl = int(auswahl)
-			if auswahl == 1:
-				print("Auswahl wurde zu Integer Umgewandelt!")
+			print("Auswahl wurde zu Integer Umgewandelt!")
+			return auswahl
+		else:
+			print("Ist String: "+auswahl)
+			return auswahl
 	except:
 		print("Fehler in der generellen Auswahl!")
+		sys.exit()
+################################ Excel Sheet / Seite ##################################
+def excelSheet():
+	#global sheet_names
+	try:
+		file_path = "data/"+auswahl
+		wb = xlrd.open_workbook(file_path)
+		workb = wb.sheet_by_index(0)
+		sheet_names = wb.sheet_names()
+
+		return sheet_names
+	except:
+		print("Fehler in Funktion excelSheet()!")
+		sys.exit()
