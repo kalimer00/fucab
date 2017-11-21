@@ -1,3 +1,8 @@
+# coding=utf-8
+# coding=utf-8
+# coding=utf-8
+# coding=utf-8
+# coding=utf-8
 import sys, funktionen, xlrd
 from random import randrange
 while True:
